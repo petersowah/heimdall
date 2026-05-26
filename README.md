@@ -1,4 +1,4 @@
-# Aing tool
+# A website monitoring tool
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/petersowah/heimdall.svg?style=flat-square)](https://packagist.org/packages/petersowah/heimdall)
 [![Tests](https://img.shields.io/github/actions/workflow/status/petersowah/heimdall/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/petersowah/heimdall/actions/workflows/run-tests.yml)
