@@ -3,24 +3,24 @@
 namespace PeterSowah\Heimdall\Models;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable([
-    'user_id',
-    'name',
-    'is_active',
-    'check_interval_minutes',
-    'notify_ssl',
-    'notify_domain_expiry',
-    'notify_uptime',
-    'notify_dns',
-])]
 class Domain extends Model
 {
     protected $table = 'heimdall_domains';
+
+    protected $fillable = [
+        'user_id',
+        'name',
+        'is_active',
+        'check_interval_minutes',
+        'notify_ssl',
+        'notify_domain_expiry',
+        'notify_uptime',
+        'notify_dns',
+    ];
 
     protected function casts(): array
     {
