@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use PeterSowah\Heimdall\Http\Controllers\CheckController;
-use PeterSowah\Heimdall\Http\Middleware\Authorize;
 use PeterSowah\Heimdall\Http\Controllers\DomainController;
 use PeterSowah\Heimdall\Http\Controllers\HeimdallController;
 use PeterSowah\Heimdall\Http\Controllers\IncidentController;
 use PeterSowah\Heimdall\Http\Controllers\NotificationSettingController;
+use PeterSowah\Heimdall\Http\Middleware\Authorize;
 
 $domain = config('heimdall.domain');
 $path = config('heimdall.path', 'heimdall');

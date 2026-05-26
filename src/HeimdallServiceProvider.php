@@ -4,7 +4,6 @@ namespace PeterSowah\Heimdall;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use PeterSowah\Heimdall\Http\Middleware\Authorize;
 use PeterSowah\Heimdall\Models\Domain;
 use PeterSowah\Heimdall\Policies\DomainPolicy;
 
