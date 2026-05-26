@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use PeterSowah\Heimdall\Http\Controllers\CheckController;
+use PeterSowah\Heimdall\Http\Middleware\Authorize;
 use PeterSowah\Heimdall\Http\Controllers\DomainController;
 use PeterSowah\Heimdall\Http\Controllers\HeimdallController;
 use PeterSowah\Heimdall\Http\Controllers\IncidentController;
@@ -9,7 +10,7 @@ use PeterSowah\Heimdall\Http\Controllers\NotificationSettingController;
 
 $domain = config('heimdall.domain');
 $path = config('heimdall.path', 'heimdall');
-$middleware = config('heimdall.middleware', ['web', 'auth']);
+$middleware = array_merge(config('heimdall.middleware', ['web', 'auth']), [Authorize::class]);
 
 Route::domain($domain ?? '{_heimdall_domain?}')
     ->prefix($path)

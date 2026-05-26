@@ -5,6 +5,7 @@ namespace PeterSowah\Heimdall\Tests;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use PeterSowah\Heimdall\Heimdall;
 use PeterSowah\Heimdall\HeimdallServiceProvider;
 
 abstract class TestCase extends OrchestraTestCase
@@ -15,6 +16,7 @@ abstract class TestCase extends OrchestraTestCase
     {
         parent::setUp();
         Model::unguard();
+        Heimdall::auth(fn () => true);
     }
 
     protected function tearDown(): void

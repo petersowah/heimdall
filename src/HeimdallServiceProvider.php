@@ -4,6 +4,7 @@ namespace PeterSowah\Heimdall;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use PeterSowah\Heimdall\Http\Middleware\Authorize;
 use PeterSowah\Heimdall\Models\Domain;
 use PeterSowah\Heimdall\Policies\DomainPolicy;
 
@@ -29,5 +30,7 @@ class HeimdallServiceProvider extends ServiceProvider
         ], 'heimdall-config');
 
         Gate::policy(Domain::class, DomainPolicy::class);
+
+        Gate::define('viewHeimdall', fn ($user) => Heimdall::check($user));
     }
 }

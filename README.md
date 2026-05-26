@@ -55,9 +55,32 @@ HEIMDALL_PATH=heimdall
 HEIMDALL_ALERT_EMAILS=you@example.com,ops@example.com
 ```
 
+## Authorization
+
+By default, Heimdall is only accessible in the `local` environment. To control access in production, define an authorization callback — typically in `AppServiceProvider::boot()`:
+
+```php
+use PeterSowah\Heimdall\Heimdall;
+
+Heimdall::auth(function ($user) {
+    return in_array($user->email, [
+        'admin@example.com',
+        'ops@example.com',
+    ]);
+});
+```
+
+The callback receives the authenticated user and should return `true` or `false`. The underlying gate is `viewHeimdall`, so you can also define it directly:
+
+```php
+Gate::define('viewHeimdall', function ($user) {
+    return $user->hasRole('admin');
+});
+```
+
 ## Dashboard
 
-Visit `/heimdall` (or your configured path) after installation. The dashboard is protected by the middleware stack defined in config — `auth` by default.
+Visit `/heimdall` (or your configured path) after installation. The dashboard is protected by the middleware stack defined in config — `auth` by default — plus the `viewHeimdall` gate.
 
 ## What gets monitored
 
