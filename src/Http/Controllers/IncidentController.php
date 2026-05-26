@@ -2,9 +2,9 @@
 
 namespace PeterSowah\Heimdall\Http\Controllers;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
 use PeterSowah\Heimdall\Models\Domain;
 use PeterSowah\Heimdall\Resources\IncidentResource;
@@ -12,6 +12,7 @@ use PeterSowah\Heimdall\Resources\IncidentResource;
 class IncidentController extends Controller
 {
     use AuthorizesRequests;
+
     public function index(Request $request, Domain $domain): AnonymousResourceCollection
     {
         $this->authorize('view', $domain);

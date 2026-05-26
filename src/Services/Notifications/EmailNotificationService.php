@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use PeterSowah\Heimdall\Mail\DomainAlertMail;
 use PeterSowah\Heimdall\Models\AlertLog;
 use PeterSowah\Heimdall\Models\Domain;
+use PeterSowah\Heimdall\Models\NotificationSetting;
 
 class EmailNotificationService
 {
@@ -54,7 +55,7 @@ class EmailNotificationService
             return $fromConfig;
         }
 
-        $setting = \PeterSowah\Heimdall\Models\NotificationSetting::where('user_id', $domain->user_id)->first();
+        $setting = NotificationSetting::where('user_id', $domain->user_id)->first();
 
         return $setting?->notification_emails ?? [];
     }

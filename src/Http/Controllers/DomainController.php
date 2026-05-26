@@ -2,10 +2,10 @@
 
 namespace PeterSowah\Heimdall\Http\Controllers;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
 use Illuminate\Validation\Rule;
 use PeterSowah\Heimdall\Jobs\RunDnsCheck;
@@ -18,6 +18,7 @@ use PeterSowah\Heimdall\Resources\DomainResource;
 class DomainController extends Controller
 {
     use AuthorizesRequests;
+
     public function index(Request $request): AnonymousResourceCollection
     {
         $domains = Domain::where('user_id', $request->user()->id)

@@ -1,6 +1,5 @@
 <?php
 
-use Mockery\MockInterface;
 use Orchestra\Testbench\Factories\UserFactory;
 use PeterSowah\Heimdall\Jobs\RunSslCheck;
 use PeterSowah\Heimdall\Models\Check;
